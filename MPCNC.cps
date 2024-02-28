@@ -7,8 +7,8 @@ MPCNC posts processor for milling and laser/plasma cutting.
 */
 
 description = "MPCNC Milling/Laser - Marlin 2.0, Grbl 1.1, RepRap";
-vendor = "flyfisher604";
-vendorUrl = "https://github.com/flyfisher604/mpcnc_post_processor";
+vendor = "brentyates";
+vendorUrl = "https://github.com/brentyates/mpcnc_post_processor";
 
 // Internal properties
 certificationLevel = 2;
@@ -884,6 +884,8 @@ function onClose() {
 
   flushMotions();
 
+  writeln("END_PRINT")
+
   if (properties.gcodeStopFile == "") {
     onCommand(COMMAND_COOLANT_OFF);
     if (properties.job9_GoOriginOnFinish) {
@@ -1390,6 +1392,8 @@ function writeFirstSection() {
   writeInformation();
 
   writeComment(eComment.Important, " *** START begin ***");
+
+  writeln("START_PRINT")
 
   if (properties.gcodeStartFile == "") {
        Start();
