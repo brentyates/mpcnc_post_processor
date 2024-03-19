@@ -1393,13 +1393,13 @@ function writeFirstSection() {
 
   writeComment(eComment.Important, " *** START begin ***");
 
-  writeln("START_PRINT")
-
   if (properties.gcodeStartFile == "") {
        Start();
   } else {
     loadFile(properties.gcodeStartFile);
   }
+
+  writeln("START_PRINT")
 
   writeComment(eComment.Important, " *** START end ***");
   writeComment(eComment.Important, " ");
